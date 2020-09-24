@@ -86,7 +86,12 @@ class MyProfile extends Component {
               class="btn btn-primary"
               id="submit"
               value="Submit"
-              disabled={!this.state.readable}
+              disabled={
+                !this.state.readable ||
+                !this.state.name ||
+                !this.state.gender ||
+                !this.state.description
+              }
             ></input>
           </div>
         </form>
