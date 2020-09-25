@@ -5,9 +5,9 @@ import "bootstrap/dist/css/bootstrap.css";
 class MyProfile extends Component {
   state = {
     name: "",
-    gender: "Male",
-    description: "",
-    readable: "",
+    price: "",
+    unit: "",
+    img: "",
   };
 
   handleFieldChange = (field, event) => {
@@ -39,58 +39,63 @@ class MyProfile extends Component {
               type="text"
               class="form-control"
               id="name"
-              placeholder="your name"
+              placeholder="名称"
               value={this.state.name}
               onChange={(e) => this.handleFieldChange("name", e)}
             />
           </div>
 
+
+          
           <div class="form-group">
-            <label id="Gender">Gender</label>
-            <select
+            <label htmlFor="price">价格</label>
+            <input
+              type="text"
               class="form-control"
-              id="gender"
-              onChange={(e) => this.handleFieldChange("gender", e)}
-            >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
+              id="price"
+              placeholder="价格"
+              value={this.state.price}
+              onChange={(e) => this.handleFieldChange("price", e)}
+            />
           </div>
 
           <div class="form-group">
-            <label id="Description">Description</label>
-            <textarea
+            <label htmlFor="unit">单位</label>
+            <input
+              type="text"
               class="form-control"
-              rows="3"
-              id="description"
-              placeholder="Description about yourself"
-              value={this.state.description}
-              onChange={(e) => this.handleFieldChange("description", e)}
-            ></textarea>
+              id="unit"
+              placeholder="单位"
+              value={this.state.unit}
+              onChange={(e) => this.handleFieldChange("unit", e)}
+            />
+          </div>
+          
+
+          <div class="form-group">
+            <label htmlFor="img">图片</label>
+            <input
+              type="text"
+              class="form-control"
+              id="img"
+              placeholder="URL"
+              value={this.state.img}
+              onChange={(e) => this.handleFieldChange("img", e)}
+            />
           </div>
 
-          <div class="checkbox">
-            <label>
-              <input
-                type="checkbox"
-                id="readable"
-                checked={this.state.readable}
-                onChange={(e) => this.handleCheckedChange("readable", e)}
-              />
-              &nbsp;&nbsp;I have read the terms of conduct
-            </label>
-          </div>
-          <div className="Submit">
+          
+          <div className="提交">
             <input
               type="submit"
               class="btn btn-primary"
               id="submit"
               value="Submit"
               disabled={
-                !this.state.readable ||
+                !this.state.price ||
                 !this.state.name ||
-                !this.state.gender ||
-                !this.state.description
+                !this.state.img ||
+                !this.state.unit
               }
             ></input>
           </div>
